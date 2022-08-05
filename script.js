@@ -47,48 +47,38 @@ if (randomNumber == 1) {
 } else (randomNumber = 1);
 
 //Choose a random person.
-let listOfPeople = ['Amy', 'Boyle', 'Doug', 'Gina', 'Hitchcock', 'Holt', 'Jake', 'Kevin', 'Pimento', 'Rosa', 'Scully', 'Terry'];
+let listOfPeople = ['Amy', 'Boyle', /*'Doug', 'Gina', 'Hitchcock', 'Holt', 'Jake', 'Kevin', 'Pimento', 'Rosa', 'Scully', 'Terry'*/];
 let randomPerson = listOfPeople[Math.floor(Math.random() * listOfPeople.length)];
 
 //creates the culprit (I do not know how this is connecting to the id tags in the divs... I just know that it is.)
 //There is also probably a better way of doing this. Refactoring, I just do not know what that would be yet.
 function creatingTheCulprit() {
-if (randomPerson == 'Amy') {
-    culprit = Amy.classList.add('culprit');
-}
-if (randomPerson == 'Boyle') {
-    culprit = Boyle.classList.add('culprit');
-}
-if (randomPerson == 'Doug') {
-    culprit = Doug.classList.add('culprit');
-}
-if (randomPerson == 'Gina') {
-    culprit = Gina.classList.add('culprit');
-}
-if (randomPerson == 'Hitchcock') {
-    culprit = Hitchcock.classList.add('culprit');
-}
-if (randomPerson == 'Holt') {
-    culprit = Holt.classList.add('culprit');
-}
-if (randomPerson == 'Jake') {
-    culprit = Jake.classList.add('culprit');
-}
-if (randomPerson == 'Kevin') {
-    culprit = Kevin.classList.add('culprit');
-}
-if (randomPerson == 'Pimento') {
-    culprit = Pimento.classList.add('culprit');
-}
-if (randomPerson == 'Rosa') {
-    culprit = Rosa.classList.add('culprit');
-}
-if (randomPerson == 'Scully') {
-    culprit = Scully.classList.add('culprit');
-}
-if (randomPerson == 'Terry') {
-    culprit = Terry.classList.add('culprit');
-}
+    switch (randomPerson){
+        case ('Amy'): culprit = Amy.classList.add('culprit');
+            break;
+        case ('Boyle'): culprit = Boyle.classList.add('culprit');
+            break;
+        case ('Doug'): culprit = Doug.classList.add('culprit');
+            break;
+        case ('Gina'): culprit = Gina.classList.add('culprit');
+            break;
+        case ('Hitchcock'): culprit = Hitchcock.classList.add('culprit');
+            break;
+        case ('Holt'): culprit = Holt.classList.add('culprit');
+            break;
+        case ('Jake'): culprit = Jake.classList.add('culprit');
+            break;
+        case ('Kevin'): culprit = Kevin.classList.add('culprit');
+            break;
+        case ('Pimento'): culprit = Pimento.classList.add('culprit');
+            break;
+        case ('Rosa'): culprit = Rosa.classList.add('culprit');
+            break;
+        case ('Scully'): culprit = Scully.classList.add('culprit');
+            break;
+        case ('Terry'): culprit = Terry.classList.add('culprit');
+            break;
+    }
 }
 //this is just for me to debug.
 //console.log(randomPerson);
