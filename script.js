@@ -1,7 +1,7 @@
 const draggable = document.querySelectorAll('.draggable');
 const containers = document.querySelectorAll('.container');
 
-//makes things draggable
+//makes the images draggable
 draggable.forEach(draggable => {
     draggable.addEventListener('dragstart', () =>{
         draggable.classList.add('dragging')
@@ -50,6 +50,8 @@ if (randomNumber == 1) {
 let listOfPeople = ['Amy', 'Boyle', 'Doug', 'Gina', 'Hitchcock', 'Holt', 'Jake', 'Kevin', 'Pimento', 'Rosa', 'Scully', 'Terry'];
 let randomPerson = listOfPeople[Math.floor(Math.random() * listOfPeople.length)];
 
+//creates the culprit (I do not know how this is connecting to the id tags in the divs... I just know that it is.)
+//There is also probably a better way of doing this. Refactoring, I just do not know what that would be yet.
 function creatingTheCulprit() {
 if (randomPerson == 'Amy') {
     culprit = Amy.classList.add('culprit');
@@ -88,10 +90,13 @@ if (randomPerson == 'Terry') {
     culprit = Terry.classList.add('culprit');
 }
 }
+//this is just for me to debug.
+//console.log(randomPerson);
+//console.log(randomNumber);
 
-console.log(randomPerson);
-console.log(randomNumber);
-
+//after dragging the people onto the seesaw, click the 'weigh' button and it will weigh everone on both sides
+//it will then add the .culprit class onto the side and add the random number too
+//it will then spit out a console.log for; equal weight, left heavier, or right heavier. 
 function clickToWeigh() {
     creatingTheCulprit();
     const leftside = document.getElementById('leftside');
@@ -114,3 +119,11 @@ function clickToWeigh() {
         console.log('right heavier')
     }
 }
+
+//to do list...
+//create a new game button (refresh).
+//limit the weigh button to three attempts.
+//have a character selector function. (who are you guessing is either heavier or lighter...)
+//character selector limited to one guess.
+//make some attempt at beautifying the design. 
+//perhaps add some css animation if I can figure out how. Maybe an actual seesaw?
