@@ -9,7 +9,12 @@
 <body>
     <div class="instructions">
         <h1>Captain Holt's Island Riddle</h1>
-        <p>These are the instructions</p>
+        <h2>These are the instructions:</h2>
+        <p>There are 12 people on an island, they all weight the same except one.</p>
+        <p>One of the islanders is either heavier or lighter</p>
+        <p>You have to find out who it is, you only have a seesaw...which you can use 3 times.</p>
+        <p>Click and drag the islanders on each side of the seesaw and click weigh to find out what side is heavier or lighter.</p>
+        <p>You will have 3 attempts to weigh, and 1 chance to choose the character.</p>
         
     </div>
     <div class="container">
@@ -30,16 +35,54 @@
     </div>
 
     <div class="controls">
-        <p> These are the controls</p>
-        <p id="attemptsLeft"> 3 attempts left</p>
-        <button onclick="clickToWeigh()">Weigh</button>
+        <h2>These are the controls</h2>
+        <p>Click weigh after you have place islanders onto the seesaw</p>
+        <p>New game will refresh the page, it will also give you a new weight and islander</p>
+        <button onclick="clickToWeigh()" id="clicktoweighbutton">Weigh</button>
+        <button onclick="startNewGame()">New Game</button>
+
+
+        </form>
     </div>
 
     <div class="seesaw">
-        <div class="container" id="leftside"></div>
+        <div class="container" id="leftside">
+            <h3>Left Side of the Seesaw</h3>
+        </div>
 
-        <div class="container" id="rightside"></div>
+        <div class="container" id="rightside">
+            <h3>Right Side of the Seesaw</h3>
+        </div>
+    </div>
+
+    <div> 
+        <form id="choosetheculprit">
+            <label for="person">Choose the Odd One Out:</label>
+            <select id="chooseperson" name="chooseperson">
+                <option value="Amy">Amy</option>
+                <option value="Boyle">Boyle</option>
+                <option value="Doug">Doug</option>
+                <option value="Gina">Gina</option>
+                <option value="Hitchcock">Hitchcock</option>
+                <option value="Holt">Holt</option>
+                <option value="Jake">Jake</option>
+                <option value="Kevin">Kevin</option>
+                <option value="Pimento">Pimento</option>
+                <option value="Rosa">Rosa</option>
+                <option value="Scully">Scully</option>
+                <option value="Terry">Terry</option>
+            </select>
+            <label for="lighterorheavier">Were they lighter or heavier</label>
+            <select id="chooseweight" name="chooseweight">
+                <option value="Lighter">Lighter</option>
+                <option value="Heavier">Heavier</option>
+            </select>
+        </form>
+        <button onclick="oneClickButtonCounter()" id="clickButtonCounter">Choose Wisely</button>
+        <div id="results"></div>
     </div>
 </body>
 
 </html>
+
+<!-- need to finish the form choosetheculprit-->

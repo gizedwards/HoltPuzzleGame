@@ -6,7 +6,6 @@ draggable.forEach(draggable => {
     draggable.addEventListener('dragstart', () =>{
         draggable.classList.add('dragging')
     })
-
     draggable.addEventListener('dragend', () => {
         draggable.classList.remove('dragging')
     })
@@ -41,14 +40,14 @@ function getDragAfterElement(container, y) {
 }
 
 //Create a random number either -1, or +1
-let randomNumber = Math.floor(Math.random() *2) +1;
+var randomNumber = Math.floor(Math.random() *2) +1;
 if (randomNumber == 1) {
     randomNumber = -1;
 } else (randomNumber = 1);
 
 //Choose a random person.
-let listOfPeople = ['Amy', 'Boyle', /*'Doug', 'Gina', 'Hitchcock', 'Holt', 'Jake', 'Kevin', 'Pimento', 'Rosa', 'Scully', 'Terry'*/];
-let randomPerson = listOfPeople[Math.floor(Math.random() * listOfPeople.length)];
+let listOfPeople = ['Amy', 'Boyle', 'Doug', 'Gina', 'Hitchcock', 'Holt', 'Jake', 'Kevin', 'Pimento', 'Rosa', 'Scully', 'Terry'];
+const randomPerson = listOfPeople[Math.floor(Math.random() * listOfPeople.length)];
 
 //creates the culprit (I do not know how this is connecting to the id tags in the divs... I just know that it is.)
 //There is also probably a better way of doing this. Refactoring, I just do not know what that would be yet.
@@ -84,6 +83,36 @@ function creatingTheCulprit() {
 //console.log(randomPerson);
 //console.log(randomNumber);
 
+function startNewGame() {
+    location.reload();
+}
+//creates a limit on the number of clicks to the weigh button to 3
+var counterthree = 1;
+function threeClickButtonCounter() {
+    if(counterthree==3){
+        document.getElementById("clicktoweighbutton").disabled=true;
+        //console.log(counterthree);
+    } else {
+        counterthree = counterthree + 1;
+        //console.log(counterthree);
+    }
+}
+//creates a limit on the number of clicks to guess the person to 1
+var counterone = 1;
+var weightResult = 'Zero';
+function oneClickButtonCounter() {
+    if(counterone==1){
+        document.getElementById("clickButtonCounter").disabled=true;
+    } else {
+        counterone = counterone + 1;
+    }
+    if (randomNumber == -1) {
+        weightResult = "lighter"
+    } else if (randomNumber == 1) {
+        weightResult = "heavier"
+    }
+    alert("The correct answer was " + randomPerson + ", and they were " + weightResult + ". Click new game to try again!" )
+}
 //after dragging the people onto the seesaw, click the 'weigh' button and it will weigh everone on both sides
 //it will then add the .culprit class onto the side and add the random number too
 //it will then spit out a console.log for; equal weight, left heavier, or right heavier. 
@@ -100,20 +129,19 @@ function clickToWeigh() {
     else if (rightside.querySelector('.culprit')) {
         rightcount = rightcount + randomNumber;
     }
-
+    var balance = 1;
     if (leftcount == rightcount){
-        console.log('equal weight')
+        alert('Both sides of the seesaw weight the same!')
     } else if (leftcount > rightcount) {
-        console.log('left heavier')
+        balance = balance -1;
+        alert('The left side of the seesaw is heavier!')
     } else if (leftcount < rightcount) {
-        console.log('right heavier')
+        balance = balance +1;
+        alert('The right side of the seesaw is heavier!')
     }
+    //console.log(balance);
+    threeClickButtonCounter();
 }
-
 //to do list...
-//create a new game button (refresh).
-//limit the weigh button to three attempts.
-//have a character selector function. (who are you guessing is either heavier or lighter...)
-//character selector limited to one guess.
 //make some attempt at beautifying the design. 
 //perhaps add some css animation if I can figure out how. Maybe an actual seesaw?
